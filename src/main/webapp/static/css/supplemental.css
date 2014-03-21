@@ -1,0 +1,352 @@
+/* Put your own styles in this file, either to augment or override default styles. 
+   DO NOT modify the other style sheets as this will make future upgrades difficult. */
+/* remove the line when the mouse pointer hovers over the text. */
+a {
+	text-decoration: none;
+	
+	
+ 
+}
+
+
+textarea { width: 350px; height: 60px; margin-right: 5px;}
+.ui-widget { font-size: 11px; }
+		.ui-widget a { border-width: 0px; }
+		.ui-widget-content  { background-color: #ffffff; background-image: none; }
+		
+		.ui-datepicker th { background-color: #ffffff; font-size: 1em; }
+		.ui-datepicker td { font-size: 1em; }
+		.ui-datepicker-trigger { vertical-align: text-bottom;}
+		
+		#main_content .errorsummary { margin-left: 50px; margin-top: 5px; }
+		#main_content .errorsummary li { color: red; }
+
+table {
+	vertical-align: top;
+}
+
+th {
+	text-align: left;
+	font-weight: 900;
+	background: none repeat scroll 0 0 #97A6B4;
+	color: #002666;
+	font-size: .8em;
+	padding: .2em;
+}
+
+td {
+	text-align: left;
+	background: #FFFFFF;
+	font-size: .8em;
+	padding: .2em;
+}
+
+td.center {
+	text-align: center;
+	background: #FFFFFF;
+	font-size: .8em;
+	padding: .2em;
+}
+
+tr.odd td {
+	background-color: #F2EBCC;
+}
+
+th.right {
+	text-align: right;
+	font-weight: 900;
+	width: 30%;
+	background: #FFFFFF;
+	color: #002666;
+	font-size: .8em;
+}
+
+td.left {
+	text-align: left;
+	font-size: .8em;
+}
+
+td.right {
+	text-align: right;
+	font-size: .8em;
+}
+
+table.main_table {
+	border: 1px solid #002666;
+}
+
+
+table.main_table caption.header{
+	
+	text-align: center;
+	background: #99A8C2;
+	font-weight: 900;
+	background: #99A8C2;
+	color: #002666;
+	font-size: .8em;
+	padding: .2em;
+	border: 1px solid #002666;
+	
+
+}
+table.main_table th {
+	border-bottom:  #335185 1px solid;
+	text-align: center;
+	background: #99A8C2;
+}
+
+table.main_table td {
+	border-top: 1px solid #335185;
+}
+
+table.main_table td.sum {
+	border-top: 1px solid #335185;
+	font-weight: 900;
+	background: #99B7B1;
+}
+table.main_table th.bold_red{
+	color: red;
+	font-weight: bold;
+}
+
+table.main_table td.center {
+	text-align: center;
+	background: #FFFFFF;
+	font-size: .8em;
+	padding: .2em;
+	border-top: 1px solid #335185;
+}
+
+table.main_table td.header {
+	font-weight: 900;
+}
+
+table.main_table td.bgnew {
+	background: #999
+}
+
+table.main_table td.bginprogress {
+	background: #06C
+}
+
+table.main_table td.bgreadyforreview {
+	background: #090
+}
+
+table.main_table td.bgrejected {
+	background: #F00
+}
+
+table.main_table td.bgcompleted {
+	background: #600
+}
+
+table.main_table tr.odd td {
+	background-color: #F2EBCC;
+}
+
+table.filter_table {
+	border: 1px solid #002666;
+}
+
+
+table.filter_table th {
+	border-bottom:  #335185 1px solid;
+	text-align: center;
+	background:  #99A8C2;
+}
+
+
+table.filter_table td {
+	border-top: 1px solid #335185;
+	background:  #F2EBCC;
+}
+
+table.test_br tr td {
+	border: 0;
+}
+
+table.test_br tr,td.border_bottom {
+	border-bottom: 1px solid #AAAAAA;
+}
+
+table#other {
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	text-align: center;
+	border: red solid thin;
+	outline: green dotted thick;
+	border-collapse: collapse;
+	border-spacing: 10px;
+}
+
+.error {
+	color: red;
+}
+
+.small {
+	font-size: xx-small
+}
+
+ul {
+	list-style-type: none;
+}
+
+ul.project {
+	list-style-type: none;
+	padding: 0;
+	margin-left: 2em;
+}
+
+ul.task {
+	list-style-type: none;
+}
+	
+
+	
+#project_list odd {
+	background-color: #CCCCCC;
+	height: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.45em;
+	color: #8e9090;
+}
+
+#project_list ul {
+	margin: 0;
+	padding: 0;
+}
+
+#project_list ul li {
+	display: inline;
+	padding-left: 5px;
+     	float: left;
+	list-style: none;
+	background-color: #CCCCCC;
+	list-style-image: url(../images/delete.gif);
+}
+
+#task_list {
+	height: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.45em;
+	color: #8e9090;
+	padding-left: 50px;
+}
+
+#task_list ul {
+	margin: 0;
+	padding: 0;
+}
+
+#task_list ul li {
+	display: inline;
+	padding-left: 5px;
+	float: left;
+	list-style: none;
+	list-style-image: url(../images/delete.gif);
+}
+
+#action_list {
+	height: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.45em;
+	color: #8e9090;
+	padding-left: 200px;
+}
+
+#action_list ul {
+	margin: 0;
+	padding: 0;
+}
+
+#action_list ul li {
+	padding-left: 5px;
+	min-width: 150px;
+	float: left;
+	list-style-image: url(../images/delete.gif);
+}
+
+#page_content #main_content .box {
+	height: 200px;
+	width: 400px;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+}
+
+#page_content #main_content .left {
+	
+}
+
+#page_content #main_content .right {
+	margin-left: 410px;
+	margin-top: -202px;
+	margin-bottom: 10px;
+}
+
+#main_content p.required_field_legend {
+	color: red;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+
+#main_content .bold_red {
+	color: #D53344;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+#main_content .no_top_margin {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+#main_content .no_bottom_margin {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+#announcements {
+	border: solid 1px #CCAD33;
+	width: 14em;
+	padding: 1em;
+	margin-top: 1.5em;
+	font-size: 0.8em;
+}
+
+.announcements {
+	color: #D53344;
+	margin-top: 0;
+}
+
+#main_content p.note { font-size: .8em; color: #777777; }
+/* standard table with blue border */
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+
+.standard-table { width: 80%; border: solid 1px #2C5f92; }
+.standard-table td { vertical-align: top;}
+.center { text-align: center; }
+
+.toggle { width: 45px; height: 15px; border: 0px; background: url("../images/tinybutton-show.gif") no-repeat;}
+.toggle.hide { background: url("../images/tinybutton-hide.gif") no-repeat; }
+.toggle-content { display: none;}
+
+/* jquery additions */
+.ui-widget { font-size: 11px; }
+.ui-widget a { border-width: 0px; }
+.ui-widget-content  { background-color: #ffffff; background-image: none; }
+.ui-datepicker th { background-color: #ffffff; font-size: 1em; }
+.ui-datepicker td { font-size: 1em; }
+.ui-datepicker-trigger { vertical-align: text-bottom;}

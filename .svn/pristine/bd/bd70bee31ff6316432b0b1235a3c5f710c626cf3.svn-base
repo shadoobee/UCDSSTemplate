@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 3.7.1.v20110905 Build &lt;3.7.1.v20110913-1734></property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[countOfRows=0;]]></method>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="ActivityId" id="1045">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="scriptedDS" id="1003"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="lmsDS" id="1004">
+            <property name="eventHandlerClass">edu.ucdavis.ss.lmsreports.birt.handler.LearnerActivityCompletionHandler</property>
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Learner</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Status</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">HomeDepartment</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">OrgName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Manager</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">LearnerEmail</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">CompletionDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">LearnerOrgCd</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">LearnerUserNumber</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">LearnerEmployeeNumber</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">JobName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">ActivityName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">CompletionStatus</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">UserCd</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Learner</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Status</property>
+                </structure>
+                <structure>
+                    <property name="columnName">HomeDepartment</property>
+                </structure>
+                <structure>
+                    <property name="columnName">OrgName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Manager</property>
+                </structure>
+                <structure>
+                    <property name="columnName">LearnerEmail</property>
+                </structure>
+                <structure>
+                    <property name="columnName">CompletionDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">LearnerOrgCd</property>
+                </structure>
+                <structure>
+                    <property name="columnName">LearnerUserNumber</property>
+                </structure>
+                <structure>
+                    <property name="columnName">LearnerEmployeeNumber</property>
+                </structure>
+                <structure>
+                    <property name="columnName">JobName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ActivityName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">CompletionStatus</property>
+                </structure>
+                <structure>
+                    <property name="columnName">UserCd</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Learner</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">HomeDepartment</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">OrgName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Manager</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">LearnerEmail</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">CompletionDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">LearnerOrgCd</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">LearnerUserNumber</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">LearnerEmployeeNumber</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">JobName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">ActivityName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">CompletionStatus</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">UserCd</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">scriptedDS</property>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">8.5in</property>
+            <property name="width">18in</property>
+            <property name="orientation">landscape</property>
+            <page-footer>
+                <grid id="100">
+                    <property name="width">13.34375in</property>
+                    <column id="101">
+                        <property name="width">0.6458333333333334in</property>
+                    </column>
+                    <column id="102">
+                        <property name="width">12.697916666666666in</property>
+                    </column>
+                    <row id="103">
+                        <cell id="104">
+                            <text id="106">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Run Date:]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="105">
+                            <text id="3">
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="fontSize">8pt</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="7">
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontSize">9pt</property>
+            <property name="width">16.5625in</property>
+            <column id="8">
+                <property name="width">5.15625in</property>
+            </column>
+            <column id="9">
+                <property name="width">5.145833333333333in</property>
+            </column>
+            <column id="10">
+                <property name="width">6.260416666666667in</property>
+            </column>
+            <row id="11">
+                <cell id="12">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <label id="31">
+                        <property name="fontSize">16pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">University of California - LMS Reports</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="15">
+                <cell id="16">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <label id="33">
+                        <property name="fontSize">14pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Learning Activity - Learner Information</text-property>
+                    </label>
+                    <grid id="34">
+                        <property name="height">0.3958333333333333in</property>
+                        <column id="35"/>
+                        <column id="36"/>
+                        <column id="37"/>
+                        <row id="38">
+                            <property name="height">0.3958333333333333in</property>
+                            <cell id="39"/>
+                            <cell id="40">
+                                <data id="1046">
+                                    <property name="fontSize">14pt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="dataSet">lmsDS</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">ActivityName</property>
+                                            <text-property name="displayName">ActivityName</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["ActivityName"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">ActivityName</property>
+                                </data>
+                            </cell>
+                            <cell id="41"/>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="19">
+                <cell id="20">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <table id="55">
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="width">16.489583333333332in</property>
+                        <property name="dataSet">lmsDS</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">OrgName</property>
+                                <text-property name="displayName">OrgName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["OrgName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Status</property>
+                                <text-property name="displayName">Status</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Status"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Manager</property>
+                                <text-property name="displayName">Manager</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Manager"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">LearnerOrgCd</property>
+                                <text-property name="displayName">LearnerOrgCd</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["LearnerOrgCd"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">HomeDepartment</property>
+                                <text-property name="displayName">HomeDepartment</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["HomeDepartment"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">LearnerEmail</property>
+                                <text-property name="displayName">LearnerEmail</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["LearnerEmail"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">LearnerUserNumber</property>
+                                <text-property name="displayName">LearnerUserNumber</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["LearnerUserNumber"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">LearnerEmployeeNumber</property>
+                                <text-property name="displayName">LearnerEmployeeNumber</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["LearnerEmployeeNumber"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">JobName</property>
+                                <text-property name="displayName">JobName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["JobName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Learner</property>
+                                <text-property name="displayName">Learner</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Learner"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CompletionDate</property>
+                                <expression name="expression" type="javascript">dataSetRow["CompletionDate"]</expression>
+                                <property name="dataType">date</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">ActivityName</property>
+                                <text-property name="displayName">ActivityName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ActivityName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CompletionStatus</property>
+                                <text-property name="displayName">CompletionStatus</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["CompletionStatus"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">UserCd</property>
+                                <text-property name="displayName">UserCd</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["UserCd"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <list-property name="sort">
+                            <structure>
+                                <expression name="key" type="javascript">row["ActivityName"]</expression>
+                                <property name="direction">asc</property>
+                                <property name="strength">-1</property>
+                            </structure>
+                            <structure>
+                                <expression name="key" type="javascript">row["Learner"]</expression>
+                                <property name="direction">asc</property>
+                                <property name="strength">-1</property>
+                            </structure>
+                        </list-property>
+                        <column id="1035">
+                            <property name="width">1.7395833333333333in</property>
+                        </column>
+                        <column id="89">
+                            <property name="width">0.71875in</property>
+                        </column>
+                        <column id="90">
+                            <property name="width">0.59375in</property>
+                        </column>
+                        <column id="91">
+                            <property name="width">0.4895833333333333in</property>
+                        </column>
+                        <column id="92">
+                            <property name="width">1.5520833333333333in</property>
+                        </column>
+                        <column id="93">
+                            <property name="width">1.1354166666666667in</property>
+                        </column>
+                        <column id="1057">
+                            <property name="width">1.1354166666666667in</property>
+                        </column>
+                        <column id="94">
+                            <property name="width">1.90625in</property>
+                        </column>
+                        <column id="95">
+                            <property name="width">1.6979166666666667in</property>
+                        </column>
+                        <column id="96">
+                            <property name="width">0.9583333333333334in</property>
+                        </column>
+                        <column id="97">
+                            <property name="width">0.96875in</property>
+                        </column>
+                        <column id="98">
+                            <property name="width">2.5729166666666665in</property>
+                        </column>
+                        <column id="1050">
+                            <property name="width">1.0208333333333333in</property>
+                        </column>
+                        <header>
+                            <row id="56">
+                                <property name="height">0.5520833333333334in</property>
+                                <property name="backgroundColor">#005DAA</property>
+                                <property name="color">white</property>
+                                <cell id="1032">
+                                    <label id="1036">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Full Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="57">
+                                    <label id="1007">
+                                        <text-property name="text">Completed Training</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="58">
+                                    <label id="1009">
+                                        <text-property name="text">User Primary Domain</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="59">
+                                    <label id="1011">
+                                        <text-property name="text">User Status</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="60">
+                                    <label id="1013">
+                                        <text-property name="text">Manager Full Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="61">
+                                    <label id="1015">
+                                        <text-property name="text">User Organization Code</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1055">
+                                    <label id="1058">
+                                        <text-property name="text">UserCd</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="62">
+                                    <label id="1017">
+                                        <text-property name="text">User Primary Organization</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="63">
+                                    <label id="1019">
+                                        <text-property name="text">User Email Address</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="64">
+                                    <label id="1021">
+                                        <text-property name="text">User Number</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="65">
+                                    <label id="1023">
+                                        <text-property name="text">Country(Employee ID)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="66">
+                                    <label id="1025">
+                                        <text-property name="text">User Primary Job Title</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1047">
+                                    <label id="1053">
+                                        <text-property name="text">Completion Status</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="67">
+                                <property name="height">0.34375in</property>
+                                <cell id="1033">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1037">
+                                        <property name="marginRight">8pt</property>
+                                        <method name="onCreate"><![CDATA[countOfRows++;]]></method>
+                                        <property name="resultSetColumn">Learner</property>
+                                    </data>
+                                </cell>
+                                <cell id="68">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1038">
+                                        <property name="marginRight">8pt</property>
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Custom</property>
+                                            <property name="pattern">MM/dd/yyyy</property>
+                                        </structure>
+                                        <property name="textAlign">center</property>
+                                        <property name="resultSetColumn">CompletionDate</property>
+                                    </data>
+                                </cell>
+                                <cell id="69">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1010">
+                                        <property name="marginRight">8pt</property>
+                                        <property name="textAlign">center</property>
+                                        <property name="resultSetColumn">OrgName</property>
+                                    </data>
+                                </cell>
+                                <cell id="70">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1012">
+                                        <property name="marginRight">8pt</property>
+                                        <property name="textAlign">center</property>
+                                        <property name="resultSetColumn">Status</property>
+                                    </data>
+                                </cell>
+                                <cell id="71">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1014">
+                                        <property name="marginRight">8pt</property>
+                                        <property name="resultSetColumn">Manager</property>
+                                    </data>
+                                </cell>
+                                <cell id="72">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1016">
+                                        <property name="marginRight">8pt</property>
+                                        <property name="resultSetColumn">LearnerOrgCd</property>
+                                    </data>
+                                </cell>
+                                <cell id="1056">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1059">
+                                        <property name="resultSetColumn">UserCd</property>
+                                    </data>
+                                </cell>
+                                <cell id="73">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1018">
+                                        <property name="marginRight">8pt</property>
+                                        <property name="resultSetColumn">HomeDepartment</property>
+                                    </data>
+                                </cell>
+                                <cell id="74">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1020">
+                                        <property name="marginRight">8pt</property>
+                                        <property name="resultSetColumn">LearnerEmail</property>
+                                    </data>
+                                </cell>
+                                <cell id="75">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1022">
+                                        <property name="marginRight">8pt</property>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">LearnerUserNumber</property>
+                                    </data>
+                                </cell>
+                                <cell id="76">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1024">
+                                        <property name="marginRight">8pt</property>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">LearnerEmployeeNumber</property>
+                                    </data>
+                                </cell>
+                                <cell id="77">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1026">
+                                        <property name="resultSetColumn">JobName</property>
+                                    </data>
+                                </cell>
+                                <cell id="1048">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1054">
+                                        <property name="resultSetColumn">CompletionStatus</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+        <label id="981">
+            <method name="onCreate"><![CDATA[if(countOfRows > 0){this.text = "";}]]></method>
+            <text-property name="text">We're sorry. No matching results were found.</text-property>
+        </label>
+    </body>
+</report>

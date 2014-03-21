@@ -1,0 +1,199 @@
+body {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 100%;
+}
+
+/* ---------- Default styles for paragraphs and links ---------- */
+	a {
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: none;
+	}
+
+/* ==================== New header section ==================== */
+	#app_title  #search_wrapper {
+		text-align: right;
+		float: right;
+		font-weight: normal;
+		width:450px;
+		
+	}
+		
+	}
+	#app_title {
+	
+		font-family:Tahoma;
+		font-weight:bold;
+		color: white;
+		text-align: left;
+		float: left;
+		
+		}
+		
+	}
+	#app_title #search_wrapper a {
+		font-size: 0.8em;
+		font-weight:normal;
+		
+	}
+	
+	
+/* ==================== Page title section ==================== */
+	#page_title h1 {
+		font-family: georgia, "times new roman" , times, serif;
+		font-weight: normal;
+		font-size: 2.5em;
+	}
+	#page_title h1 a {
+		text-decoration: none;
+	}
+
+/* ==================== Primary site navigation section ==================== */
+	div.primary_nav ul {
+		font-size: 0.7em;
+	}
+	div.primary_nav ul li a, div.primary_nav ul li span {
+		font-weight: bold;
+		white-space: nowrap;
+	}
+	div.primary_nav ul li a {
+		text-decoration: none;
+	}
+	div.primary_nav ul li a.first {
+		text-decoration: none;
+	}
+
+/* ==================== Main content section ==================== */
+
+	/* ---------- Left sidebar list styles ---------- */
+		#main_sidebar ul {
+			font-size: 0.7em;
+		}
+		#main_sidebar ul li.here, #main_sidebar ul li p.here {
+			font-weight: bold;
+		}
+		#main_sidebar ul li ul {
+			font-size: 0.9em;
+		}
+
+	/* ---------- Left sidebar Level 2 navigation styles ---------- */
+		#main_sidebar #level2_nav h2 {
+			font-size: 0.85em;
+			font-weight: bold;
+		}
+
+	/* ---------- Left sidebar Other Links navigation styles (often used for Quick Links) ---------- */
+		#main_sidebar div.other_links h2 {
+			font-size: 0.85em;
+			font-weight: bold;
+		}
+
+	/* ---------- Left sidebar content ownership box ---------- */
+		#main_sidebar #ownership h2 {
+			font-size: 0.8em;
+		}
+		#main_sidebar #ownership p {
+			font-size: 0.7em;
+		}
+
+/* ==================== Right content ==================== */
+
+	/* ---------- Breadcrumb navigation section ---------- */
+		#main_content #breadcrumbs {
+			font-size: 0.65em;
+			text-align: right;
+		}
+		#main_content #breadcrumbs span.here {
+			font-weight: bold;
+		}
+
+	/* ---------- Images for main content area ---------- */
+		#main_content div.image p {
+			font-size: 0.65em;
+		}
+
+	/* ---------- Spotlight box for right side of page ---------- */
+		#main_content div.spotlight h3 {
+			font-size: 0.9em;
+		}
+		#main_content div.spotlight ul {
+			font-size: 0.8em;
+		}
+		#main_content div.spotlight p {
+			font-size: 0.8em;
+		}
+
+	/* ---------- Right content paragraph styles ---------- */
+		#main_content p {
+			font-size: 0.9em;
+		}
+
+	/* ---------- Deck: a block of larger copy at the top of the page. Add dubl_deck class to additional paragraphs when you need to add them to the deck ---------- */
+		#main_content p.deck {
+			font-size: 1.0em;
+		}
+		#main_content blockquote {
+			font-size: 0.9em;
+		}
+
+	/* ---------- Right and left pull quotes ---------- */
+		#main_content div.pullquote p.quote {
+			font-size: 1em;
+		}
+		#main_content div.pullquote p.source {
+			font-size: 0.85em;
+			font-style: italic;
+		}
+
+	/* ---------- Right content heading styles ---------- */
+		#main_content h1, h2, h3, h4 {
+			font-weight: bold;
+		}
+		#main_content h1 {
+			font-weight: normal;
+			font-size: 1.2em;
+		}
+		#main_content h2 {
+			font-size: 1em;
+		}
+		#main_content h3 {
+			font-size: 0.9em;
+		}
+		#main_content h4 {
+			font-size: 0.85em;
+		}
+
+	/* ---------- Right content list styles ---------- */
+		#main_content ul, #main_content ol {
+			font-size: 0.9em;
+		}
+		#main_content ul ul, #main_content ol ol, #main_content ul ol, #main_content ol ul {
+			font-size: 0.9em;
+		}
+
+	/* Definition lists */
+		#main_content dl {
+			font-size: 0.9em;
+		}
+		#main_content dl dt {
+			font-style: italic;
+		}
+		
+	/* ---------- Right content misc styles ---------- */
+		b {
+			font-weight: bold;
+		}
+		i {
+			font-style: italic;
+		}
+
+/* ==================== Footer section ==================== */
+#footer {
+font-size: 0.7em;
+text-align: center;
+} 
+/* ---------- For clearing two column sections ---------- */
+	.clearer {
+		font-size: 1px;
+	}

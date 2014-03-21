@@ -1,0 +1,2 @@
+logDirectory=var/lib/tomcat6/logs
+logLevel=SEVERE

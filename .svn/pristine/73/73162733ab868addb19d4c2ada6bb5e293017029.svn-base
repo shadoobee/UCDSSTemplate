@@ -1,0 +1,4 @@
+create table person_activity_ws(
+person_id int not null,
+activity_id int not null
+FOREIGN KEY (person_id) REFERENCES Person(person_id) )

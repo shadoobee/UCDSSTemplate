@@ -1,0 +1,120 @@
+a.ui-multiselectdropdown
+{
+	background: white url(dropdown.blue.png) right center no-repeat;
+	border: solid 1px #aaaaaa;
+	padding-right: 20px;
+	position: relative;
+	cursor: default;
+	text-decoration: none;
+	color: black;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+}
+
+a.ui-multiselectdropdown:link,
+a.ui-multiselectdropdown:visited,
+a.ui-multiselectdropdown:hover,
+a.ui-multiselectdropdown:active
+{
+	color: black;
+	text-decoration: none;
+	/*outline-style: none;
+	-moz-outline-style:none;*/
+}
+
+a.ui-multiselectdropdown span
+{
+	margin: 1px 0px 1px 3px;
+	overflow: hidden;
+	display: -moz-inline-stack;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+a.ui-multiselectdropdown:hover
+{
+	background-image: url(dropdown.blue.hover.png);
+	border-color: #5794BF;
+}
+
+a.ui-multiselectdropdown.active, 
+a.ui-multiselectdropdown.focus
+{
+	border-color: #5794BF;
+}
+
+a.ui-multiselectdropdown.active
+{
+	background-image: url(dropdown.blue.active.png);
+}
+
+a.ui-multiselectdropdown.disabled,
+a.ui-multiselectdropdown.disabled:hover
+{
+	color: #999999;
+	background-image: url(dropdown.disabled.png);
+	border-color: #bbbbbb;
+}
+
+.ui-multiselect-options 
+{
+	margin-top: -1px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border: solid 1px #B2B2B2;
+	background: #FFF;
+	position: absolute;
+	top: -1000px;
+	left: -1000px;
+	z-index: 99999;
+	visibility: hidden;
+}
+
+.ui-multiselect-options label
+{
+	padding: 0px 2px;
+	display: block;
+	white-space: nowrap;
+}
+
+.ui-multiselect-options label.ui-multiselect-optgroup
+{
+	font-weight: bold;
+}
+
+.ui-multiselect-options label.disabled
+{
+	color: #aaaaaa;
+}
+
+.ui-multiselect-options .ui-multiselect-optgroup-container label
+{
+	padding-left: 10px;
+}
+
+.ui-multiselect-options.ui-multiselect-optgrouphascheckboxes .ui-multiselect-optgroup-container label
+{
+	padding-left: 18px;
+}
+
+.ui-multiselect-options input
+{
+	vertical-align: middle;
+}
+
+.ui-multiselect-options label.checked
+{
+	background-color: #dce5f8;
+}
+
+.ui-multiselect-options label.ui-multiselect-selectall
+{
+	border-bottom: dotted 1px #CCC;
+}
+
+.ui-multiselect-options label.hover
+{
+	background-color: #3399ff;
+	color: white;
+}

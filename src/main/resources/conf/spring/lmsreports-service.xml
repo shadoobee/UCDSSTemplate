@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright © 2011 The Regents of the University of California. All 
+  Rights Reserved.
+    
+  Unpublished rights reserved under the copyright laws of the United 
+  States. The Software contained on this media is proprietary to and 
+  embodies the confidential technology of the University of California, 
+  Davis. Possession, use, duplication or dissemination of the software 
+  and media is authorized only pursuant to a valid written license from
+  University of California, Davis.
+    
+  RESTRICTED RIGHTS LEGEND
+  Use, duplication, or disclosure by the U.S. Government is subject to 
+  restrictions as set forth in Subparagraph (c) (1) (ii) of DFARS 
+  252.227-7013 or in FAR 52.227-19, as applicable.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:component-scan base-package="edu.ucdavis.ss.lmsreports.service" />
+	<!--  
+	<context:property-placeholder location="classpath:lmsreports.properties"/>
+-->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:lmsreports.properties</value>
+				<value>file:///${user.home}/localconfigs/lmsreports.override.properties</value>
+				<value>classpath:auth-pack.properties</value>
+<!-- 			<value>file:///${catalina.home}/conf/templateproject.override.properties</value>
+ -->			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="true" />
+		
+	</bean>
+
+	<!-- This bean will allow you to override any bean property using the syntax 
+		beanId.propertyName=some value -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+		<property name="locations">
+			<list>
+<!-- 				<value>file:///${catalina.home}/conf/templateproject.bean.override.properties
+				</value>
+ -->				<value>classpath:project.build.properties</value>
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="true" />
+	</bean>
+	
+	 <bean id = "shibHeaderValidatorService" class = "edu.ucdavis.its.authpack.service.impl.NotNullOrEmptyHeaderValidatorServiceImpl">
+		<property name = "headersToValidate">
+			<list>
+				<value>RANDOM_UUID_STRING</value>
+				<value>TIMESTAMP</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="buildDetailsService"
+		class="edu.ucdavis.ss.lmsreports.service.BuildDetailsServiceImpl">
+		<property name="buildVersionNumber" value="${build.version}" />
+		<property name="buildDateString" value="dev" />
+		<property name="buildProjectName" value="${build.projectname}"/>
+	</bean> 
+	
+	
+
+	<import resource="classpath:conf/spring/auth-pack-spring-beans.xml" />
+
+</beans>

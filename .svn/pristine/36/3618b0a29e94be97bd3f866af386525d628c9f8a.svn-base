@@ -1,0 +1,88 @@
+build.projectname=LMSReports
+build.version=1.1
+#Build Time Information
+build.timestamp=${mavenBuildTimestamp}
+
+
+
+
+# settings for local development ORACLE server
+#ora.jdbc.driver=com.mysql.jdbc.Driver
+#ora.jdbc.url=jdbc:mysql://horse.ucdavis.edu:3306/LMSReporting
+#ora.jdbc.user=lmsuser
+#ora.jdbc.password=lm$r3p0rt$
+#ora.jdbc.maxConnections=25
+#hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+lms.jdbc.driver=net.sourceforge.jtds.jdbc.Driver
+lms.jdbc.url=jdbc:jtds:sqlserver://gopher.ucdavis.edu:1433/LMSReporting
+lms.jdbc.user=lmsuser
+lms.jdbc.password=lm$r3p0rt$
+lms.jdbc.maxConnections=25
+hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+
+
+
+# settings for local development mysql server
+#ora.jdbc.driver=oracle.jdbc.driver.OracleDriver
+#ora.jdbc.url=jdbc:oracle:thin:@localhost:1521:XE
+#ora.jdbc.user=LMSREPORTS
+#ora.jdbc.password=LMSREPORTS
+#ora.jdbc.maxConnections=25
+#hibernate.dialect=org.hibernate.dialect.OracleDialect
+
+# settings for sql server on gopher
+jdbc.driver=net.sourceforge.jtds.jdbc.Driver
+jdbc.url=jdbc:jtds:sqlserver://gopher.ucdavis.edu:1433/SumTotalLMSMirror
+jdbc.user=cognos
+jdbc.password=Sudd3nD3pth!
+#jdbc.url=jdbc:jtds:sqlserver://132.249.69.30:1433/SumTotalLMSMirror
+#jdbc.user=sa
+#jdbc.password=Sudd3nD3pth!
+jdbc.maxConnections=25
+#sqlserver.hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+
+hibernate.showSql=false
+hibernate.show_sql=false
+hibernate.hbm2ddl.auto=validate
+hibernate.autoReconnect=true
+hibernate.autoReconnectForPools=true
+hibernate.minEvictableIdleTimeMillis=60000
+hibernate.removeAbandonedTimeout=60#
+
+hibernate.connection.provider_class=org.hibernate.connection.C3P0ConnectionProvider
+hibernate.c3p0.acquireIncrement=3
+hibernate.c3p0.acquireRetryAttempts=20
+hibernate.c3p0.initialPoolSize=3
+hibernate.c3p0.minPoolSize=3
+hibernate.c3p0.maxPoolSize=60
+hibernate.c3p0.maxIdleTime=900
+hibernate.c3p0.min_size=1
+hibernate.c3p0.max_size=60
+hibernate.c3p0.timeout=1800
+hibernate.c3p0.maxStatements=0
+hibernate.openSessionInViewInterceptor=FLUSH_AUTO
+
+
+spoofing.enable=true
+shibUrl=http://localhost:8080/lmsreports/login.htm
+nothingToDisplay=We're sorry. No matching results were found.
+noAccess=We're sorry. You do not have access to LMS Reports. Please contact your system administrator.
+
+
+edu.ucdavis.its.authpack.configShibAttributeTypes=HEADER,PARAMETER,ATTRIBUTE
+#true when deploying to qa env
+edu.ucdavis.its.authpack.configEncryptedPostData=false	
+edu.ucdavis.its.authpack.configCheckToken=false
+edu.ucdavis.its.authpack.configTokenMaxAge=500000
+edu.ucdavis.its.authpack.configEncryptionKey=JyEU(qvyCk6s3@FRloA7)ZpjwesgwyU8qtu+ayIxDOENphfrDxpWCTF9dM0KL2g2I(AFr
+edu.ucdavis.its.authpack.configEncryptionCharsetName=UTF-8
+edu.ucdavis.its.authpack.configEncryptionDigestAlgorithm=SHA-256
+edu.ucdavis.its.authpack.configEncryptionKeyAlgorithm=AES
+edu.ucdavis.its.authpack.configEncryptionCipherAlgorithm=AES/CBC/PKCS5Padding
+edu.ucdavis.its.authpack.generateNewTimestamps=true
+edu.ucdavis.its.authpack.generateNewUuids=true
+
+
+#Build Time Information
+build.timestamp=${mavenBuildTimestamp}

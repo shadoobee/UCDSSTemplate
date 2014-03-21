@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright © 2011 The Regents of the University of California. All 
+  Rights Reserved.
+    
+  Unpublished rights reserved under the copyright laws of the United 
+  States. The Software contained on this media is proprietary to and 
+  embodies the confidential technology of the University of California, 
+  Davis. Possession, use, duplication or dissemination of the software 
+  and media is authorized only pursuant to a valid written license from
+  University of California, Davis.
+    
+  RESTRICTED RIGHTS LEGEND
+  Use, duplication, or disclosure by the U.S. Government is subject to 
+  restrictions as set forth in Subparagraph (c) (1) (ii) of DFARS 
+  252.227-7013 or in FAR 52.227-19, as applicable.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	id="LMSReports" 
+	version="2.5">
+
+	<display-name>LMSReports</display-name>
+	<description>Web Application containing BIRT Engine for LMS Reporting</description>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:/META-INF/conf/spring/lmsreports-service.xml
+			classpath:/META-INF/conf/spring/lmsreports-data.xml
+		
+		</param-value>
+	</context-param>
+	
+	
+	
+	<error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/WEB-INF/jsp/error.jsp</location>
+</error-page>
+	
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	
+	 
+
+	<servlet>
+		<servlet-name>lmsreports</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:/META-INF/conf/spring/lmsreports-web.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	
+
+
+	<servlet-mapping>
+	    <servlet-name>lmsreports</servlet-name>
+	    <url-pattern>/index.htm</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet-mapping>
+	    <servlet-name>lmsreports</servlet-name>
+	    <url-pattern>*.htm</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet-mapping>
+    <servlet-name>lmsreports</servlet-name>
+    <url-pattern>*.xls</url-pattern>
+</servlet-mapping>
+
+
+
+<!--
+	- The following filter and associated mapping will cause all requests to be checked
+	- for a UserSession object in the session.  If not present, the request will be
+	- redirected to a login page which is backed by Rice.
+-->
+<!--
+	<filter>
+		<filter-name>UserLoginFilter</filter-name>
+		<filter-class>edu.ucdavis.ss.riceutil.web.filter.UserLoginFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>UserLoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+-->
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+	</welcome-file-list>
+
+</web-app>

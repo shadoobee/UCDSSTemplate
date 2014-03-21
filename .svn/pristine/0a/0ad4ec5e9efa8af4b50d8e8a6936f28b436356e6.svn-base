@@ -1,0 +1,8 @@
+#build.projectname=LMSReports
+#build.version=1.1
+#Build Time Information
+#build.timestamp=${mavenBuildTimestamp}
+
+buildDetailsService.buildProjectName=${project.name}
+buildDetailsService.buildVersionNumber=Version ${project.version}
+buildDetailsService.buildDateString=${buildNumber}

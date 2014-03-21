@@ -1,0 +1,134 @@
+
+/* ==================== Header section ==================== */
+	
+	#header {
+		background-color: #002666;
+		background-image: url(../images/common/system_logo_on-blue.jpg);
+	}
+	
+	 #app_title{
+	background-color: #002666;
+	}
+	
+	#title{
+	background-color: #002666;
+	}
+	
+	
+	#header #ucdavis_logo {
+		background-color: #002666;
+		background: url(../../images/common/ucdavis_logo_gold-on-blue.gif) no-repeat 0 0;
+	}
+	#app_title #search_wrapper a {
+		color: #FFFFFF;
+	}
+	#app_title #search_wrapper a:hover {
+		background-color: #4C6794;
+	}
+	
+	
+
+/* ==================== Main content section ==================== */
+	
+	#main {
+		background-color: #D5DBE1;
+	}
+
+/* ==================== Left sidebar ==================== */
+	
+	#main_sidebar {
+		background-color: #D5DBE1;
+	}
+
+	/* ---------- Left sidebar Level 2 navigation styles ---------- */
+		#main_sidebar #level2_nav h2 {
+			border-bottom: 1px solid #8092B2;
+			color: #002666;
+		}
+		#main_sidebar #level2_nav ul li a:hover {
+			background-color: #B2BED1;
+		}
+		#main_sidebar #level2_nav ul li.here, #main_sidebar ul li p.here {
+			background-color: #99A8C2;
+		}
+		#main_sidebar #level2_nav ul li ul li {
+			border-bottom: 1px solid #99A8C2;
+		}
+
+	/* ---------- Left sidebar Other Links navigation styles (often used for Quick Links) ---------- */
+		#main_sidebar div.other_links h2 {
+			background-color: #EAEDF0;
+			background-image: url(../../images/common/quicklinks_corner_blue.gif);
+			border-bottom: 1px solid #B2BED1;
+			color: #002666;
+		}
+		#main_sidebar div.other_links ul {
+			background-color: #E2E6EB;
+		}
+		#main_sidebar div.other_links ul li a:hover {
+			background-color: #CCD4E0;
+		}
+		#main_sidebar div.other_links ul li.here {
+			background-color: #E5D699;
+		}
+
+	/* ---------- Left sidebar content ownership box ---------- */
+		#main_sidebar #ownership {
+			border-top: 1px solid #8092B2;
+			border-bottom: 1px solid #8092B2;
+		}
+		#main_sidebar #ownership p {
+			color: #002666;
+		}
+
+/* ==================== Right content ==================== */
+
+	/* ---------- Breadcrumb navigation section ---------- */
+		#main_content #breadcrumbs {
+			background-color: #EAEDF0;
+		}
+
+	/* ---------- Images for main content area ---------- */
+		#main_content div.image {
+			background-color: #FFF;
+		}
+		#main_content div.img_right {
+			border-left: 1em solid #FFF;
+			border-bottom: 1em solid #FFF;
+		}
+		#main_content div.image p {
+			color: #002666;
+		}
+		#main_content div.image p.caption_box {
+			background-color: #CCD4E0;
+		}
+
+	/* ---------- Spotlight box for right side of page ---------- */
+		#main_content div.spotlight {
+			background-color: #D5DBE1;
+			border-top: 1px solid #99A8C2;
+			border-bottom: 1px solid #99A8C2;
+		}
+		#main_content div.spotlight h3 {
+			background-color: #B2BED1;
+			border-bottom: 1px solid #99A8C2;
+		}
+
+	/* ---------- Right content paragraph styles ---------- */
+		#main_content div.pullquote {
+			border-top: 1px solid #99A8C2;
+			border-bottom: 1px solid #99A8C2;
+		}
+   
+/* ==================== Variable width styles ==================== */		
+	
+	#page_content {
+		/* background-image: url(../../images/common/fixed_bg_blue.gif); 
+		background-repeat:no-repeat;
+		background-position: -9999px 0; */
+	}
+
+	#bar_1, #bar_2, #main {
+		border-left-color: #002666;
+		border-right-color: #002666;
+	}

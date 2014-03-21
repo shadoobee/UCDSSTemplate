@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+
+
+		<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+			<property name="customEditors">
+				<map>
+					<entry key="org.joda.time.Duration">
+						<bean class="edu.ucdavis.its.authpack.DurationPropertyEditor">
+						</bean>
+					</entry>
+				</map>
+			</property>
+		</bean>
+
+	
+
+<!-- the cache manager -->
+<!-- This thing is a FactoryBean that exposes the CacheManager interface -->
+	<bean id="tokenCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+  		<property name="configLocation" value="classpath:tokenCache.xml"/>
+	</bean>
+	
+
+	<!-- Shib Handler Configuration -->
+	<!-- <bean id = "shibHandlerParams" class = "edu.ucdavis.its.authpack.ShibHandlerParams" init-method="init">
+		<property name = "configShibAttributeTypesString" value = "${edu.ucdavis.its.authpack.configShibAttributeTypes}"/>
+		<property name = "configCheckToken" value = "${edu.ucdavis.its.authpack.configCheckToken}"/>
+		<property name = "configTokenMaxAge" value = "${edu.ucdavis.its.authpack.configTokenMaxAge}"/>
+		<property name = "configEncryptedPostData" value = "${edu.ucdavis.its.authpack.configEncryptedPostData}"/>
+		<property name = "configEncryptionKey" value = "${edu.ucdavis.its.authpack.configEncryptionKey}"/>
+		<property name = "configEncryptionCharsetName" value = "${edu.ucdavis.its.authpack.configEncryptionCharsetName}"/>
+		<property name = "configEncryptionDigestAlgorithm" value = "${edu.ucdavis.its.authpack.configEncryptionDigestAlgorithm}"/>
+		<property name = "configEncryptionKeyAlgorithm" value = "${edu.ucdavis.its.authpack.configEncryptionKeyAlgorithm}"/>
+		<property name = "configEncryptionCipherAlgorithm" value = "${edu.ucdavis.its.authpack.configEncryptionCipherAlgorithm}"/>
+	</bean>
+	-->
+	
+
+	<bean id = "stringEncrypterService" class = "edu.ucdavis.its.authpack.service.impl.StringEncrypterServiceImpl" init-method="init">
+		<property name = "configEncryptionKey" value = "${edu.ucdavis.its.authpack.configEncryptionKey}"/>
+		<property name = "configEncryptionCharsetName" value = "${edu.ucdavis.its.authpack.configEncryptionCharsetName}"/>
+		<property name = "configEncryptionDigestAlgorithm" value = "${edu.ucdavis.its.authpack.configEncryptionDigestAlgorithm}"/>
+		<property name = "configEncryptionKeyAlgorithm" value = "${edu.ucdavis.its.authpack.configEncryptionKeyAlgorithm}"/>
+		<property name = "configEncryptionCipherAlgorithm" value = "${edu.ucdavis.its.authpack.configEncryptionCipherAlgorithm}"/>
+	</bean>
+	
+	<bean id = "shibHandlerService" class = "edu.ucdavis.its.authpack.service.impl.ShibHandlerServiceImpl" init-method = "init">
+		<property name = "configShibAttributeTypesString" value = "${edu.ucdavis.its.authpack.configShibAttributeTypes}"/>
+		<property name = "configCheckToken" value = "${edu.ucdavis.its.authpack.configCheckToken}"/>
+		<property name = "configTokenMaxAge" value = "${edu.ucdavis.its.authpack.configTokenMaxAge}"/>
+		<property name = "configEncryptedPostData" value = "${edu.ucdavis.its.authpack.configEncryptedPostData}"/>
+		<property name = "stringEncrypter" ref = "stringEncrypterService"/>
+		<property name = "tokenCacheConfigurationName" value = "tokenCache"/>
+		<property name = "cacheManager" ref = "tokenCacheManager"/>
+	</bean>
+
+	<!-- Spring Security Components -->
+
+	<bean id = "sessionInjector" class = "edu.ucdavis.its.authpack.util.ShibHeaderSessionInjectorBaseImpl">
+	
+	</bean>
+	
+	
+
+	   
+   <!--  Spoofing services -->
+   
+   <!-- Spoofable users -->
+	<bean id="spoofableUsersService" class = "edu.ucdavis.its.authpack.service.impl.BasicConfigurableSpoofableUserServiceImpl" init-method="init">
+		<property name = "spoofableUsersList">
+			<list>
+				<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Kelly Crabtree;UC Davis"/>
+					<property name = "shibDisplayName" value = "Kelly Crabtree"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "kacrabtree@ucdavis.edu"/>
+					<property name = "shibLastName" value = "Crabtree"/>
+					<property name = "shibFirstName" value = "Kelly"/>
+					<property name = "shibEmailAddress" value = "kacrabtree@ucdavis.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucdavis.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Sylvia Jiang; UCOP - Super User"/>
+					<property name = "shibDisplayName" value = "Sylvia Jiang"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "sylvia.jiang@ucop.edu"/>
+					<property name = "shibLastName" value = "Sylvia"/>
+					<property name = "shibFirstName" value = "Jiang"/>
+					<property name = "shibEmailAddress" value = "sylvia.jiang@ucop.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucop.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Kathleen Valerio; UCBerkeley"/>
+					<property name = "shibDisplayName" value = "Kathleen Valero"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "kvalerio@berkeley.edu"/>
+					<property name = "shibLastName" value = "Kathleen"/>
+					<property name = "shibFirstName" value = "Valerio"/>
+					<property name = "shibEmailAddress" value = "kvalerio@berkeley.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:berkeley.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Ben Amundson;UCSF User"/>
+					<property name = "shibDisplayName" value = "Ben Amundson"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "ben.amundson@ucsf.edu"/>
+					<property name = "shibLastName" value = "Ben"/>
+					<property name = "shibFirstName" value = "Amundson"/>
+					<property name = "shibEmailAddress" value = "ben.amundson@ucsf.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucsf.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+				<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Albert Wu;UCLA User"/>
+					<property name = "shibDisplayName" value = "Albert Wu"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "albertwu@ucla.edu"/>
+					<property name = "shibLastName" value = "Albert"/>
+					<property name = "shibFirstName" value = "Wu"/>
+					<property name = "shibEmailAddress" value = "albertwu@ucla.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucla.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+				<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Nancy Terry;UCR User"/>
+					<property name = "shibDisplayName" value = "Nancy Terry"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "nancy.terry@ucr.edu"/>
+					<property name = "shibLastName" value = "Nancy"/>
+					<property name = "shibFirstName" value = "Terry"/>
+					<property name = "shibEmailAddress" value = "nancy.terry@ucr.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucr.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Christy Beckham;UCSD User"/>
+					<property name = "shibDisplayName" value = "Christy Beckham"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "cbeckham@ucsd.edu"/>
+					<property name = "shibLastName" value = "Christy"/>
+					<property name = "shibFirstName" value = "Beckham"/>
+					<property name = "shibEmailAddress" value = "cbeckham@ucsd.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucsd.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+				<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Melinda Crawford;UCSB User"/>
+					<property name = "shibDisplayName" value = "Melinda Crawford"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "melinda.crawford@hr.ucsb.edu"/>
+					<property name = "shibLastName" value = "Melinda"/>
+					<property name = "shibFirstName" value = "Crawford"/>
+					<property name = "shibEmailAddress" value = "melinda.crawford@hr.ucsb.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucsb.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+						<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Bob Kumamoto;UCI User"/>
+					<property name = "shibDisplayName" value = "Bob Kumamoto"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "bob.kumamoto@uci.edu"/>
+					<property name = "shibLastName" value = "Bob"/>
+					<property name = "shibFirstName" value = "Kumamoto"/>
+					<property name = "shibEmailAddress" value = "bob.kumamoto@uci.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:uci.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+						<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Jody Gonzalez;UCM User"/>
+					<property name = "shibDisplayName" value = "Jody Gonzalez"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "jgonzalez37@ucmerced.edu"/>
+					<property name = "shibLastName" value = "Jody"/>
+					<property name = "shibFirstName" value = "Gonzalez"/>
+					<property name = "shibEmailAddress" value = "jgonzalez37@ucmerced.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucmerced.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Wes Gray; UCSC User"/>
+					<property name = "shibDisplayName" value = "Wes Gray"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "wwgray@ucsc.edu"/>
+					<property name = "shibLastName" value = "Wes"/>
+					<property name = "shibFirstName" value = "Gray"/>
+					<property name = "shibEmailAddress" value = "wwgray@ucsc.edu "/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucsc.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Christopher David;UCSFMC"/>
+					<property name = "shibDisplayName" value = "Christopher David"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "christopher.david@ucsfmedctr.org"/>
+					<property name = "shibLastName" value = "Jody"/>
+					<property name = "shibFirstName" value = "Gonzalez"/>
+					<property name = "shibEmailAddress" value = "christopher.david@ucsfmedctr.org"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucmerced.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Christy Thompson;UCOP - Regular User"/>
+					<property name = "shibDisplayName" value = "Christy Thompson"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "christy.thompson@ucop.edu"/>
+					<property name = "shibLastName" value = "Christy"/>
+					<property name = "shibFirstName" value = "Thompson"/>
+					<property name = "shibEmailAddress" value = "christy.thompson@ucop.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucmerced.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Carolyn Germino;UCD Administrator"/>
+					<property name = "shibDisplayName" value = "Carolyn Germino"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "cbgermin@ucdavis.edu"/>
+					<property name = "shibLastName" value = "Carolyn"/>
+					<property name = "shibFirstName" value = "Germino"/>
+					<property name = "shibEmailAddress" value = "cbgermin@ucdavis.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucd.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "No Access;UCD"/>
+					<property name = "shibDisplayName" value = "No Access"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "noaccess@ucdavis.edu"/>
+					<property name = "shibLastName" value = "No"/>
+					<property name = "shibFirstName" value = "Access"/>
+					<property name = "shibEmailAddress" value = "noaccess@ucdavis.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucd.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+				</bean>
+				
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Judith Wong;UCLAMC"/>
+					<property name = "shibDisplayName" value = "Judith Wong"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "jkwong@mednet.ucla.edu"/>
+					<property name = "shibLastName" value = "Judith"/>
+					<property name = "shibFirstName" value = "Wong"/>
+					<property name = "shibEmailAddress" value = "jkwong@mednet.ucla.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucla.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+					</bean>
+					
+						<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Mark Dedlow;LBNL"/>
+					<property name = "shibDisplayName" value = "Mark Dedlow"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "mtdedlow@lbl.gov"/>
+					<property name = "shibLastName" value = "Mark"/>
+					<property name = "shibFirstName" value = "Dedlow"/>
+					<property name = "shibEmailAddress" value = "mtdedlow@lbl.gov"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:lbl.gov"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+					</bean>
+					
+					
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Limited User;UC Davis"/>
+					<property name = "shibDisplayName" value = "Limited User"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "noemail=e@ucdavis.edu"/>
+					<property name = "shibLastName" value = "User"/>
+					<property name = "shibFirstName" value = "Limited"/>
+					<property name = "shibEmailAddress" value = "noemail@ucdavis.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucdavis.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+					</bean>
+					
+					
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Laryssa Dotson;UC Davis"/>
+					<property name = "shibDisplayName" value = "Laryssa Dotson"/>
+					<property name = "shibUcnetId" value = ""/>
+					<property name = "shibUserId" value = "lddotson@ucdavis.edu"/>
+					<property name = "shibLastName" value = "Laryssa"/>
+					<property name = "shibFirstName" value = "Dotson"/>
+					<property name = "shibEmailAddress" value = "lddotson@ucdavis.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucdavis.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+					</bean>
+					
+					<bean class = "edu.ucdavis.its.authpack.ShibHeaderValues">
+					<property name = "shibCommonName" value = "Elizabeth Reay;UC Davis"/>
+					<property name = "shibDisplayName" value = "Elizabeth Reay"/>
+					<property name = "shibUcnetId" value = "54068"/>
+					<property name = "shibUserId" value = "noemail=e@ucdavis.edu"/>
+					<property name = "shibLastName" value = "Reay"/>
+					<property name = "shibFirstName" value = "Elizabeth"/>
+					<property name = "shibEmailAddress" value = "ereay@cahfs.ucdavis.edu"/>
+					<property name = "shibIdentityProvider" value = "urn:mace:incommon:ucdavis.edu"/>
+					<property name = "shibTimestamp" value = ""/>
+					<property name = "shibRandomUuidString" value = ""/>
+					</bean>
+			</list>
+		</property>
+	</bean>    
+	
+	                                               
+	<bean id = "userSpoofingDetailsService" class = "edu.ucdavis.ss.lmsreports.service.UserSpoofingDetailsService" init-method="init">
+		<property name = "spoofableUsersService" ref = "spoofableUsersService"/>
+		<property name = "stringEncrypterService" ref = "stringEncrypterService"/>
+		<property name = "spoofingEnabled" value = "${spoofing.enable}"/>
+		<property name = "encryptHeaderValues" value = "${edu.ucdavis.its.authpack.configEncryptedPostData}"/>
+		<property name = "generateNewTimestamps" value = "${edu.ucdavis.its.authpack.generateNewTimestamps}"/>
+		<property name = "generateNewUuids" value =  "${edu.ucdavis.its.authpack.generateNewUuids}"/>
+	</bean>
+   
+
+
+</beans>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+       
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+							http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-2.1.xsd
+							http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+							http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+							http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">      
+		
+		
+<!--
+  Copyright © 2011 The Regents of the University of California. All 
+  Rights Reserved.
+    
+  Unpublished rights reserved under the copyright laws of the United 
+  States. The Software contained on this media is proprietary to and 
+  embodies the confidential technology of the University of California, 
+  Davis. Possession, use, duplication or dissemination of the software 
+  and media is authorized only pursuant to a valid written license from
+  University of California, Davis.
+    
+  RESTRICTED RIGHTS LEGEND
+  Use, duplication, or disclosure by the U.S. Government is subject to 
+  restrictions as set forth in Subparagraph (c) (1) (ii) of DFARS 
+  252.227-7013 or in FAR 52.227-19, as applicable.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+
+	
+	<!--   
+	<import resource="../hibernate/hibernate.cfg.xml"/>
+	-->
+	 
+	  
+	  <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.user}"/>
+         <property name="password" value="${jdbc.password}"/>
+         <property name="testOnBorrow" value="true"/>
+        <property name="validationQuery" value="SELECT 1"/>
+     </bean>
+     
+     
+	  <bean id="lmsdataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${lms.jdbc.driver}"/>
+        <property name="url" value="${lms.jdbc.url}"/>
+        <property name="username" value="${lms.jdbc.user}"/>
+         <property name="password" value="${lms.jdbc.password}"/>
+         <property name="testOnBorrow" value="true"/>
+        <property name="validationQuery" value="SELECT 1"/>
+     </bean>
+    
+    
+    
+    
+	 <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg><ref bean="dataSource"/></constructor-arg>
+    </bean>
+    
+     <bean name="lmsjdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg><ref bean="lmsdataSource"/></constructor-arg>
+    </bean> 
+    
+    
+     
+	 <bean id ="domainDaoImpl" class="edu.ucdavis.ss.lmsreports.data.DomainDaoImpl">
+	 	<property name = "jdbcTemplate" ref="jdbcTemplate"/>
+	 </bean>
+	 
+	 
+     <bean id ="activityTypeImpl" class="edu.ucdavis.ss.lmsreports.data.ActivityTypeDaoImpl">
+     	<property name = "jdbcTemplate" ref="jdbcTemplate"/>
+     </bean>
+     
+    
+	 
+	  <bean id ="locationDaoImpl" class="edu.ucdavis.ss.lmsreports.data.LocationDaoImpl">
+	 		<property name = "jdbcTemplate" ref="lmsjdbcTemplate"/>
+	   </bean>
+	
+	
+	
+	 
+	  <bean id ="statusDaoImpl" class="edu.ucdavis.ss.lmsreports.data.StatusDaoImpl">
+	 		<property name = "jdbcTemplate" ref="lmsjdbcTemplate"/>
+	   </bean>
+	
+	  
+		<bean id ="personDaoImpl" class="edu.ucdavis.ss.lmsreports.data.PersonDaoImpl">
+	 		<property name = "jdbcTemplate" ref="lmsjdbcTemplate"/>
+	   </bean>
+	   
+	   <bean id ="reportDaoImpl" class="edu.ucdavis.ss.lmsreports.data.ReportListDaoImpl">
+	 		<property name = "jdbcTemplate" ref="lmsjdbcTemplate"/>
+	   </bean>
+	   
+
+	   <bean id ="activityDaoImpl" class="edu.ucdavis.ss.lmsreports.data.ActivityDaoImpl">
+	 		<property name = "jdbcTemplate" ref="jdbcTemplate"/>
+	   </bean>
+     
+     
+       <bean id ="reportsDaoImpl" class="edu.ucdavis.ss.lmsreports.data.ReportsDaoImpl">
+	 		<property name = "jdbcTemplate" ref="jdbcTemplate"/>
+	   </bean>
+	   
+	   <bean id ="pingDao" class="edu.ucdavis.ss.lmsreports.data.PingDao">
+	 		<property name = "jdbcTemplate" ref="jdbcTemplate"/>
+	   </bean>
+	   
+</beans>

@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 3.7.1.v20110905 Build &lt;3.7.1.v20110913-1734></property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[countOfRows=0;]]></method>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="fromDate" id="1012">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="toDate" id="1013">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="domainName" id="1014">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="activityTypeName" id="1015">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="learningActivityName" id="1016">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="statusName" id="1017">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="campusName" id="1018">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="scriptedDS" id="1003"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="lmsDS" id="1004">
+            <property name="eventHandlerClass">edu.ucdavis.ss.lmsreports.birt.handler.ComplianceHandler</property>
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">LEARNER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">HOMEDEPARTMENT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ACTIVITYNAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">DUEDATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">STATUS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">CERTAWARDDATE</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">EMAIL</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">ORGNAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">EXPIRATIONDATE</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">TRAININGDUEDATE</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">USERCODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">EMPLOYEEID</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">LEARNER</property>
+                </structure>
+                <structure>
+                    <property name="columnName">HOMEDEPARTMENT</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ACTIVITYNAME</property>
+                </structure>
+                <structure>
+                    <property name="columnName">DUEDATE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">STATUS</property>
+                </structure>
+                <structure>
+                    <property name="columnName">CERTAWARDDATE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">EMAIL</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ORGNAME</property>
+                </structure>
+                <structure>
+                    <property name="columnName">EXPIRATIONDATE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">TRAININGDUEDATE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">USERCODE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">EMPLOYEEID</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">LEARNER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">HOMEDEPARTMENT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ACTIVITYNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">DUEDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">STATUS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">CERTAWARDDATE</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">EMAIL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">ORGNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">EXPIRATIONDATE</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">TRAININGDUEDATE</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">USERCODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">EMPLOYEEID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">scriptedDS</property>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">8.5in</property>
+            <property name="width">21in</property>
+            <property name="orientation">landscape</property>
+            <page-footer>
+                <grid id="100">
+                    <property name="width">13.34375in</property>
+                    <column id="101">
+                        <property name="width">0.6458333333333334in</property>
+                    </column>
+                    <column id="102">
+                        <property name="width">12.697916666666666in</property>
+                    </column>
+                    <row id="103">
+                        <cell id="104">
+                            <text id="106">
+                                <property name="fontFamily">"Calibri"</property>
+                                <property name="fontSize">8pt</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Run Date:]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="105">
+                            <text id="3">
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="fontSize">8pt</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="7">
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontSize">9pt</property>
+            <property name="height">2.5729166666666665in</property>
+            <property name="width">19.927083333333332in</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <text-property name="displayName">DateRange</text-property>
+                    <expression name="expression" type="javascript">var display =" Date Range: " &#13;
+&#13;
+if(params["fromDate"].value != null){&#13;
+ display +=  params["fromDate"].value + " to " + params["toDate"].value;&#13;
+} else{&#13;
+display;&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Organization</property>
+                    <expression name="expression" type="javascript">var display =" Organization: " &#13;
+&#13;
+if(params["domainName"].value != null){&#13;
+ display +=  params["domainName"].value;&#13;
+} else{&#13;
+display;&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">ActivityType</property>
+                    <expression name="expression" type="javascript">var display =" Activity Type : " &#13;
+&#13;
+if(params["activityTypeName"].value != null){&#13;
+ display +=  params["activityTypeName"].value ;&#13;
+} else{&#13;
+display;&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">LearningActivity</property>
+                    <expression name="expression" type="javascript">var display ="Learning Activity : " &#13;
+&#13;
+if(params["learningActivityName"].value != null){&#13;
+ display +=  params["learningActivityName"].value ;&#13;
+} else{&#13;
+display;&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">StatusType</property>
+                    <expression name="expression" type="javascript">var display = "Status Type: ";&#13;
+if( params["statusName"].value != null){&#13;
+ display += params["statusName"].value;&#13;
+}else{&#13;
+display;&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="8">
+                <property name="width">5.15625in</property>
+            </column>
+            <column id="9">
+                <property name="width">5.145833333333333in</property>
+            </column>
+            <column id="10">
+                <property name="width">9.625in</property>
+            </column>
+            <row id="11">
+                <cell id="12">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <label id="31">
+                        <property name="fontSize">16pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">University of California - LMS Reports</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="15">
+                <property name="height">0.40625in</property>
+                <cell id="16">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <label id="33">
+                        <property name="fontSize">14pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Compliance by Learner</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="19">
+                <cell id="20">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <table id="347">
+                        <property name="fontFamily">"Arial"</property>
+                        <property name="fontSize">8pt</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="width">18.625in</property>
+                        <property name="dataSet">lmsDS</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">LEARNER</property>
+                                <text-property name="displayName">LEARNER</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["LEARNER"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">HOMEDEPARTMENT</property>
+                                <text-property name="displayName">HOMEDEPARTMENT</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["HOMEDEPARTMENT"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">ACTIVITYNAME</property>
+                                <text-property name="displayName">ACTIVITYNAME</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ACTIVITYNAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">DUEDATE</property>
+                                <text-property name="displayName">DUEDATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["DUEDATE"]</expression>
+                                <property name="dataType">date</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">STATUS</property>
+                                <text-property name="displayName">STATUS</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["STATUS"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CERTAWARDDATE</property>
+                                <text-property name="displayName">CERTAWARDDATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["CERTAWARDDATE"]</expression>
+                                <property name="dataType">date</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">EMAIL</property>
+                                <text-property name="displayName">EMAIL</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["EMAIL"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">ORGNAME</property>
+                                <text-property name="displayName">ORGNAME</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ORGNAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">EXPIRATIONDATE</property>
+                                <text-property name="displayName">EXPIRATIONDATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["EXPIRATIONDATE"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TRAININGDUEDATE</property>
+                                <text-property name="displayName">TRAININGDUEDATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["TRAININGDUEDATE"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                            <structure>
+                                <property name="name">USERCODE</property>
+                                <text-property name="displayName">USERCODE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["USERCODE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">EMPLOYEEID</property>
+                                <text-property name="displayName">EMPLOYEEID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["EMPLOYEEID"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <list-property name="sort">
+                            <structure>
+                                <expression name="key" type="javascript">row["LEARNER"]</expression>
+                                <property name="direction">asc</property>
+                                <property name="strength">-1</property>
+                            </structure>
+                            <structure>
+                                <expression name="key" type="javascript">row["ACTIVITYNAME"]</expression>
+                                <property name="direction">asc</property>
+                                <property name="strength">-1</property>
+                            </structure>
+                        </list-property>
+                        <column id="372">
+                            <property name="width">2.1145833333333335in</property>
+                            <property name="suppressDuplicates">true</property>
+                        </column>
+                        <column id="1043">
+                            <property name="width">1.09375in</property>
+                            <property name="suppressDuplicates">true</property>
+                        </column>
+                        <column id="373">
+                            <property name="width">2.0833333333333335in</property>
+                            <property name="suppressDuplicates">true</property>
+                        </column>
+                        <column id="374">
+                            <property name="width">3.3645833333333335in</property>
+                        </column>
+                        <column id="375">
+                            <property name="width">1.2604166666666667in</property>
+                        </column>
+                        <column id="376">
+                            <property name="width">1.46875in</property>
+                        </column>
+                        <column id="1038">
+                            <property name="width">1.0520833333333333in</property>
+                        </column>
+                        <column id="377">
+                            <property name="width">2.1979166666666665in</property>
+                        </column>
+                        <column id="378">
+                            <property name="width">2.1979166666666665in</property>
+                            <property name="suppressDuplicates">false</property>
+                        </column>
+                        <column id="1026">
+                            <property name="width">0.71875in</property>
+                            <property name="suppressDuplicates">false</property>
+                        </column>
+                        <column id="1029">
+                            <property name="width">1.0729166666666667in</property>
+                            <property name="suppressDuplicates">false</property>
+                        </column>
+                        <header>
+                            <row id="348">
+                                <property name="height">0.4375in</property>
+                                <property name="backgroundColor">#005DAA</property>
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="fontSize">9pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="color">white</property>
+                                <property name="textAlign">left</property>
+                                <cell id="349">
+                                    <label id="380">
+                                        <text-property name="text">Learner Information</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1041">
+                                    <label id="1044">
+                                        <text-property name="text">Employee ID</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="350">
+                                    <label id="382">
+                                        <text-property name="text">Department</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="351">
+                                    <label id="384">
+                                        <text-property name="text">Assigned Training</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="352">
+                                    <label id="388">
+                                        <text-property name="text">Certification Status</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="353">
+                                    <label id="390">
+                                        <text-property name="text">Certification Award Date</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1036">
+                                    <label id="1039">
+                                        <text-property name="text">User Code</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="354">
+                                    <label id="392">
+                                        <text-property name="text">Email</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="355">
+                                    <label id="1030">
+                                        <text-property name="text">Due Date</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1024">
+                                    <label id="1032">
+                                        <text-property name="text">Expiration Date</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1027">
+                                    <label id="1034">
+                                        <text-property name="text">Training Due Date</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <group id="398">
+                            <property name="groupName">NewTableGroup1</property>
+                            <expression name="keyExpr" type="javascript">row["LEARNER"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["LEARNER"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                        </group>
+                        <detail>
+                            <row id="356">
+                                <property name="height">0.3333333333333333in</property>
+                                <cell id="357">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="381">
+                                        <method name="onCreate"><![CDATA[countOfRows++;]]></method>
+                                        <property name="resultSetColumn">LEARNER</property>
+                                    </data>
+                                </cell>
+                                <cell id="1042">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1045">
+                                        <property name="paddingRight">3pt</property>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">EMPLOYEEID</property>
+                                    </data>
+                                </cell>
+                                <cell id="358">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="383">
+                                        <property name="resultSetColumn">HOMEDEPARTMENT</property>
+                                    </data>
+                                </cell>
+                                <cell id="359">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="385">
+                                        <property name="resultSetColumn">ACTIVITYNAME</property>
+                                    </data>
+                                </cell>
+                                <cell id="360">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="389">
+                                        <property name="resultSetColumn">STATUS</property>
+                                    </data>
+                                </cell>
+                                <cell id="361">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="391">
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Custom</property>
+                                            <property name="pattern">MM/dd/yyyy</property>
+                                        </structure>
+                                        <property name="resultSetColumn">CERTAWARDDATE</property>
+                                    </data>
+                                </cell>
+                                <cell id="1037">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1040">
+                                        <property name="resultSetColumn">USERCODE</property>
+                                    </data>
+                                </cell>
+                                <cell id="362">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="393">
+                                        <property name="resultSetColumn">EMAIL</property>
+                                    </data>
+                                </cell>
+                                <cell id="363">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1031">
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Custom</property>
+                                            <property name="pattern">MM/dd/yyyy</property>
+                                        </structure>
+                                        <property name="resultSetColumn">DUEDATE</property>
+                                    </data>
+                                </cell>
+                                <cell id="1025">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1033">
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Custom</property>
+                                            <property name="pattern">MM/dd/yyyy</property>
+                                        </structure>
+                                        <property name="resultSetColumn">EXPIRATIONDATE</property>
+                                    </data>
+                                </cell>
+                                <cell id="1028">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1035">
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Custom</property>
+                                            <property name="pattern">MM/dd/yyyy</property>
+                                        </structure>
+                                        <property name="resultSetColumn">TRAININGDUEDATE</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+        <label id="981">
+            <method name="onCreate"><![CDATA[if(countOfRows > 0){this.text = "";}]]></method>
+            <text-property name="text">We're sorry. No matching results were found.</text-property>
+        </label>
+    </body>
+</report>

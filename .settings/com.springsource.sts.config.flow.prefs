@@ -1,0 +1,7 @@
+#Sun May 06 15:55:32 PDT 2012
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/LMSReports/src/main/resources/META-INF/conf/spring/lmsreports-data.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/LMSReports/src/main/resources/META-INF/conf/spring/lmsreports-excel-views.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/LMSReports/src/main/resources/META-INF/conf/spring/lmsreports-web.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/LMSReports/src/main/resources/conf/spring/lmsreports-excel-views.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/LMSReports/src/main/webapp/WEB-INF/lmsreports-excel-views.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+eclipse.preferences.version=1

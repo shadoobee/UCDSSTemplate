@@ -1,0 +1,7 @@
+create table person_activity(
+person_id int not null,
+activity_cd varchar(50) not null
+)
+
+insert into person_activity values(50, '05685')
+insert into person_activity values(50, '06857')

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright © 2011 The Regents of the University of California. All 
+  Rights Reserved.
+    
+  Unpublished rights reserved under the copyright laws of the United 
+  States. The Software contained on this media is proprietary to and 
+  embodies the confidential technology of the University of California, 
+  Davis. Possession, use, duplication or dissemination of the software 
+  and media is authorized only pursuant to a valid written license from
+  University of California, Davis.
+    
+  RESTRICTED RIGHTS LEGEND
+  Use, duplication, or disclosure by the U.S. Government is subject to 
+  restrictions as set forth in Subparagraph (c) (1) (ii) of DFARS 
+  252.227-7013 or in FAR 52.227-19, as applicable.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+		
+	 <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" /> 
+		
+		
+
+	<context:component-scan base-package="edu.ucdavis.ss.lmsreports.web" />
+
+	<mvc:annotation-driven/>
+	<mvc:resources mapping="/static/**" location="/static/" />
+	
+<bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    <property name="locations">
+        <list><value>classpath:lmsreports.properties</value>
+        	<value>file:///${user.home}/localconfigs/lmsreports.override.properties</value>
+        </list>
+    </property>
+</bean>
+
+
+	
+
+ 	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name = "exposedContextBeanNames">
+			<list>
+				<value>buildDetailsService</value>
+				<value>properties</value>
+			</list>
+		</property>
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+		<property name="prefix">
+			<value>/WEB-INF/jsp/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+		<property name="order" value="1" />
+	</bean>
+	
+	
+	<!--
+	  <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+       <property name="location">
+          <value>classpath:/META-INF/conf/spring/lmsreports-excel-views.xml</value>
+       </property>
+    </bean>
+      -->
+    
+    <bean id="excelViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+<property name="order" value="0"/>
+<property name="location">
+   <value>classpath:/META-INF/conf/spring/lmsreports-excel-views.xml </value>
+   </property>
+</bean>
+
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+ 
+</beans>
